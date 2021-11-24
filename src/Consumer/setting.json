@@ -1,0 +1,10 @@
+{
+  "MQconfig": {
+    "Account": "",
+    "Password": "",
+    "AmqpsUrl": "amqps://",
+    "MessageCount": 100000,
+    "MessageDelayTime": 100,
+    "Queue": "myqueue"
+  }
+}
