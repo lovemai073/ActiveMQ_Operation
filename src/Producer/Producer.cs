@@ -7,16 +7,18 @@ using Newtonsoft.Json;
 
 namespace Producer
 {
-   
+
     public class MQconfig
     {
-        public MQconfig() {
+        public MQconfig()
+        {
             Account = "account";
             Password = "";
             AmqpsUrl = "";
             MessageCount = 100;
             MessageDelayTime = 100;
             Queue = "";
+            TimeToLive = 86400;
         }
         public string Account { get; set; }
         public string Password { get; set; }
@@ -24,6 +26,7 @@ namespace Producer
         public int MessageCount { get; set; }
         public int MessageDelayTime { get; set; }
         public string Queue { get; set; }
+        public int TimeToLive { get; set; }
     }
     public class MQsettings{
         public MQconfig MQconfig { get; set; }
@@ -59,8 +62,9 @@ namespace Producer
                 //IMessageConsumer consumer = ses.CreateConsumer(dest);
                 Console.WriteLine("Created Message Producer.");
                 prod.DeliveryMode = MsgDeliveryMode.Persistent; //MsgDeliveryMode.NonPersistent : 
-                prod.TimeToLive = TimeSpan.FromDays(1);//.FromSeconds(20);
-                
+                TimeSpan TTL = TimeSpan.FromSeconds(MQ.MQconfig.TimeToLive);
+                prod.TimeToLive = TTL;
+
                 int NUM_MSG = MQ.MQconfig.MessageCount;
                 Console.WriteLine("Sending {0} Messages...", NUM_MSG);
                 DateTime StartTime = DateTime.Now;

@@ -17,6 +17,7 @@ namespace Consumer
             MessageCount = 100;
             MessageDelayTime = 100;
             Queue = "";
+            TimeToLive = 86400;
         }
         public string Account { get; set; }
         public string Password { get; set; }
@@ -24,6 +25,7 @@ namespace Consumer
         public int MessageCount { get; set; }
         public int MessageDelayTime { get; set; }
         public string Queue { get; set; }
+        public int TimeToLive { get; set; }
     }
     public class MQsettings
     {

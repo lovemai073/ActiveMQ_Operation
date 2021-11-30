@@ -5,6 +5,7 @@
     "AmqpsUrl": "amqps://",
     "MessageCount": 100000,
     "MessageDelayTime": 100,
-    "Queue": "myqueue"
+    "Queue": "myqueue",
+    "TimeToLive": 86400
   }
 }
